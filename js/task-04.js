@@ -2,10 +2,15 @@ const decrementEl = document.querySelector('button[data-action="decrement"]');
 const incrementEl = document.querySelector('button[data-action="increment"]');
 const valueEl = document.querySelector("#value");
 
-valueEl.textContent = Number(0);
+let number = Number(valueEl.textContent);
 
 const addToValue = () => {
-  console.log((valueEl.textContent += 1));
+  valueEl.textContent = number += 1;
+};
+
+const removeFromValue = () => {
+  valueEl.textContent = number -= 1;
 };
 
 incrementEl.addEventListener("click", addToValue);
+decrementEl.addEventListener("click", removeFromValue);
