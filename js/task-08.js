@@ -1,22 +1,22 @@
-// event.preventDefault();
+const loginForm = document.querySelector(".login-form");
 
-// if (event.currentTarget.value === "") {
-//     allert("Заполните все поля")
-// }
-
-// const result = {
-//     email: emailEl.currentTarget.value
-//     password: passwordEl.currentTarget.value
-// }
-
-const emailEL = document.querySelector("input[name=email]");
-const passwordEL = document.querySelector("input[type=password]");
-const submitBtnEL = document.querySelector("button[type=submit]");
-
-submitBtnEL.addEventListener("submit", (event) => {
+loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log(event);
-  if (emailEL.value.length === 0) {
-    alert("Зaполните все поля");
+
+  const formElements = event.currentTarget.elements;
+
+  const email = formElements.email.value;
+  const password = formElements.password.value;
+
+  if (email === "" || password === "") {
+    alert("Заполни все поля");
+  } else {
+    const formData = {
+      email,
+      password,
+    };
+
+    console.log(formData);
+    loginForm.reset();
   }
 });
